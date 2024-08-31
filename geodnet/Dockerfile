@@ -47,6 +47,9 @@ RUN apt-get update && apt-get install -y \
     libxtst6 \
     lsb-release \
     xdg-utils \
+    npm \
+    nodejs \
+    git \
     --no-install-recommends
 
 # Add Google Chrome repository
@@ -60,8 +63,6 @@ RUN apt-get update && apt-get install -y \
 
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /var/cache/apt/* /var/cache/apt/archives/*
-
-RUN apt-get update && apt-get install -y npm nodejs && apt-get clean
 
 # Clone application repository
 RUN git clone https://github.com/erikarenhill/geodnet-headless-console-api
