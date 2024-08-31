@@ -6,8 +6,6 @@ FROM ${BUILD_FROM} AS base
 
 ENV DEBIAN_FRONTEND "noninteractive"
 
-RUN mv /init /s6init
-
 # Install dependencies for Puppeteer
 RUN apt-get update && apt-get install -y \
     wget \
