@@ -43,8 +43,7 @@ RUN apt-get update && apt-get install -y \
     libxss1 \
     libxtst6 \
     lsb-release \
-    xdg-utils \
-    --no-install-recommends
+    xdg-utils 
 
 # Add Google Chrome repository
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
