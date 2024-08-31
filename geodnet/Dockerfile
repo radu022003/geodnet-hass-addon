@@ -1,6 +1,8 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base/amd64:7.3.1
+ARG BUILD_FROM
+FROM $BUILD_FROM
 
-FROM ${BUILD_FROM} AS base
+# Execute during the build of the image
+ARG TEMPIO_VERSION BUILD_ARCH
 # Prevent dpkg errors
 ENV DEBIAN_FRONTEND "noninteractive"
 # Set shell
