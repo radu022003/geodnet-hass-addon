@@ -6,10 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Install dependencies for Puppeteer
-RUN apt-get update && apt-get install -y \
-    wget \
-    gnupg \
-    ca-certificates 
+
 
 # Add Google Chrome repository
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
