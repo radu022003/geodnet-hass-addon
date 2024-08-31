@@ -7,10 +7,6 @@ FROM ${BUILD_FROM} AS base
 ENV DEBIAN_FRONTEND "noninteractive"
 
 RUN mv /init /s6init
-FROM base AS builder
-ARG BUILD_ARCH
-# Set shell
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install dependencies for Puppeteer
 RUN apt-get update && apt-get install -y \
