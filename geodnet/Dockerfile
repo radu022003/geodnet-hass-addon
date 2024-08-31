@@ -3,7 +3,8 @@ ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base/amd64:7.3.1
 FROM ${BUILD_FROM} AS base
 # Prevent dpkg errors
 ENV DEBIAN_FRONTEND=noninteractive
-
+# Set shell
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Install dependencies for Puppeteer
 RUN apt-get update && apt-get install -y \
     wget \
