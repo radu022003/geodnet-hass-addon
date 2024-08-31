@@ -1,5 +1,9 @@
 ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM ${BUILD_FROM} AS base
+
+ENV DEBIAN_FRONTEND "noninteractive"
+
+RUN mv /init /s6init
 
 # Execute during the build of the image
 ARG TEMPIO_VERSION BUILD_ARCH
