@@ -58,20 +58,16 @@ RUN apt-get update && apt-get install -y \
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /var/cache/apt/* /var/cache/apt/archives/*
 
-# Set the working directory
-WORKDIR /usr/src/app
-
-# Copy package.json and package-lock.json
-COPY package*.json ./
-
-# Install app dependencies
-RUN npm ci
+RUN apt-get update && apt-get install -y npm nodejs && apt-get clean
 
 # Clone application repository
 RUN git clone https://github.com/erikarenhill/geodnet-headless-console-api
 
 # Copy app source
 WORKDIR /geodnet-headless-console-api
+
+# Install app dependencies
+RUN npm ci
 
 # Expose port
 EXPOSE 3000
