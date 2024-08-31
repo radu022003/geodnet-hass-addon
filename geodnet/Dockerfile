@@ -1,12 +1,14 @@
-ARG BUILD_FROM
+ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base/amd64:7.3.1
+
+# ARGS...
+
 FROM ${BUILD_FROM} AS base
 
 ENV DEBIAN_FRONTEND "noninteractive"
 
 RUN mv /init /s6init
-
-# Execute during the build of the image
-ARG TEMPIO_VERSION BUILD_ARCH
+FROM base AS builder
+ARG BUILD_ARCH
 
 # Install dependencies for Puppeteer
 RUN apt-get update && apt-get install -y \
