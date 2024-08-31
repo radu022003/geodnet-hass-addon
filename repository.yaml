@@ -1,0 +1,4 @@
+# https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
+name: Geodnet Home Assistant add-on repository
+url: 'https://github.com/radu022003/geodnet-hass-addon.git'
+maintainer: Radu Botezatu <radu.nicolae.botezatu@gmail.com>

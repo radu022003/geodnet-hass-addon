@@ -1,0 +1,29 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: geodnet-hass
+version: "0.0.1"
+slug: geodnet
+description: Geodnet scrapper api add-on
+url: "https://github.com/radu022003/geodnet-hass-addon/geodnet"
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+init: false
+devices: []
+usb: false
+panel_admin: false
+ports:
+  3000/tcp: 3000
+options:
+  server: "http://geodnet.local:3000"
+  proxy_pass_host: true
+  proxy_pass_real_ip: true
+schema:
+  server: "match(^https?://.+:\\d+$)"
+  proxy_pass_host: bool
+  proxy_pass_real_ip: bool
+startup: application
+map:
+  - share:rw
